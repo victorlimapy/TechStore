@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechStore - E-commerce</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <h1>TechStore</h1>
+            <p>O melhor da tecnologia e games para você.</p>
+        </div>
+        
+        <div class="controles-busca">
+            <input type="text" id="input-busca" placeholder="Pesquisar produto pelo nome...">
+            <button id="btn-buscar">Buscar</button>
+            
+            <select id="filtro-categoria">
+                <option value="Todos">Todos</option>
+                <option value="Informática">Informática</option>
+                <option value="Games">Games</option>
+                <option value="Acessórios">Acessórios</option>
+            </select>
+        </div>
+        
+        <div class="icone-carrinho">
+            <button id="btn-abrir-carrinho">🛒 Carrinho (<span id="contador-carrinho">0</span>)</button>
+        </div>
+    </header>
+
+    <main class="container-principal">
+        <section class="vitrine-produtos">
+            <h2>Nossos Produtos</h2>
+            <div id="mensagem-busca"></div>
+            <div id="lista-produtos" class="grid-produtos">
+            </div>
+        </section>
+
+        <aside class="painel-carrinho" id="painel-carrinho">
+            <h2>Seu Carrinho</h2>
+            
+            <div id="itens-carrinho" class="lista-itens-carrinho">
+            </div>
+            
+            <div class="resumo-compra">
+                <p>Total de Itens: <span id="resumo-qtd-itens">0</span></p>
+                <p>Subtotal: R$ <span id="resumo-subtotal">0,00</span></p>
+                <p>Desconto: R$ <span id="resumo-desconto">0,00</span></p>
+                <h3>Valor Final: R$ <span id="resumo-total">0,00</span></h3>
+                
+                <button id="btn-finalizar-compra">Finalizar Compra</button>
+            </div>
+        </aside>
+    </main>
+
+    <div id="modal-sucesso" class="modal-oculto">
+        <div class="modal-conteudo">
+            <h2>Compra Concluída com Sucesso!</h2>
+            <div id="resumo-final-modal"></div>
+            <button id="btn-fechar-modal">Fechar</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
