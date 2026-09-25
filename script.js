@@ -44,8 +44,7 @@ class Carrinho {
                 imagem: produto.imagem,
                 preco: produto.preco,
                 estoque: produto.estoque,
-                quantidade: 1,
-                imagem: produto.imagem
+                quantidade: 1
             });
         }
 
@@ -65,6 +64,7 @@ class Carrinho {
 
         item.quantidade++;
         renderizarCarrinho();
+        exibirProdutos();
     }
 
     diminuirQuantidade(codigo) {
@@ -78,12 +78,14 @@ class Carrinho {
             this.removerProduto(codigo);
         } else {
             renderizarCarrinho();
+            exibirProdutos();
         }
     }
 
     removerProduto(codigo) {
         this.itens = this.itens.filter(item => item.codigo !== codigo);
         renderizarCarrinho();
+        exibirProdutos();
     }
 
     limpar() {
@@ -132,6 +134,13 @@ function exibirProdutos() {
 
     for (let i = 0; i < filtrados.length; i++) {
         const produto = filtrados[i];
+        const itemNoCarrinho = carrinho.itens.find(
+            item => item.codigo === produto.codigo
+        );
+        const quantidadeNoCarrinho = itemNoCarrinho
+            ? itemNoCarrinho.quantidade
+            : 0;
+        const estoqueDisponivel = produto.estoque - quantidadeNoCarrinho;
         const card = document.createElement("div");
         card.className = "card-produto";
 
@@ -141,9 +150,9 @@ function exibirProdutos() {
             <span class="categoria-tag">${produto.categoria}</span>
             <p class="preco">R$ ${formatarMoeda(produto.preco)}</p>
             <p class="disponibilidade">
-                ${produto.estoque === 0
+                ${estoqueDisponivel === 0
                     ? "Indisponível"
-                    : `Em estoque: ${produto.estoque}`}
+                    : `Em estoque: ${estoqueDisponivel}`}
             </p>
         `;
 
@@ -152,11 +161,11 @@ function exibirProdutos() {
         botao.className = "btn-adicionar";
 
         botao.textContent =
-            produto.estoque === 0
+            estoqueDisponivel === 0
                 ? "Sem estoque"
                 : "Adicionar ao carrinho";
 
-        botao.disabled = produto.estoque === 0;
+        botao.disabled = estoqueDisponivel === 0;
 
         botao.addEventListener("click", () =>
             carrinho.adicionarProduto(produto)
