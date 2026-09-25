@@ -41,6 +41,7 @@ class Carrinho {
             this.itens.push({
                 codigo: produto.codigo,
                 nome: produto.nome,
+                imagem: produto.imagem,
                 preco: produto.preco,
                 estoque: produto.estoque,
                 quantidade: 1,
@@ -267,8 +268,6 @@ function renderizarCarrinho() {
     document.getElementById("resumo-total").textContent =
         formatarMoeda(carrinho.calcularTotal());
 
-    document.getElementById("btn-finalizar-compra").disabled =
-        quantidade === 0;
 }
 
 function finalizarCompra() {

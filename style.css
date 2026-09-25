@@ -249,8 +249,8 @@ button:hover {
 }
 
 .item-carrinho {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
     align-items: center;
     border-bottom: 1px solid var(--border-color);
     padding: 15px 0;
@@ -265,18 +265,16 @@ button:hover {
     display: flex;
     align-items: center;
     gap: 10px;
-    flex: 1;
+    grid-column: 1 / -1;
     min-width: 0;
 }
 
 .img-carrinho {
-    width: 40px;
-    height: 40px;
-    object-fit: contain;
-    background-color: var(--bg-body);
-    border-radius: 6px;
-    padding: 2px;
-    border: 1px solid var(--border-color);
+    width: 64px;
+    height: 64px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 8px;
     flex-shrink: 0;
 }
 
@@ -302,6 +300,7 @@ button:hover {
     align-items: center;
     gap: 8px;
     flex-shrink: 0;
+    grid-column: 1;
 }
 
 .controles-quantidade button {
@@ -329,6 +328,8 @@ button:hover {
     color: var(--text-main);
     white-space: nowrap;
     flex-shrink: 0;
+    grid-column: 2;
+    justify-self: end;
 }
 
 .btn-remover {
@@ -336,6 +337,7 @@ button:hover {
     color: var(--danger) !important;
     border: 1px solid rgba(239, 68, 68, 0.3) !important;
     flex-shrink: 0;
+    grid-column: 3;
 }
 
 .btn-remover:hover {

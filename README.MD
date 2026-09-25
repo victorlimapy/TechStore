@@ -1,73 +1,45 @@
-# 🛒 Tech Store — E-Commerce Front-End
+# TechStore — E-commerce
 
-Uma aplicação web interativa e responsiva de e-commerce desenvolvida com **HTML5**, **CSS3** e **JavaScript puro (ES6+)**. O sistema conta com vitrine de produtos, filtros de busca e categoria, gerenciamento dinâmico de carrinho de compras com controle de estoque, cálculo automático de descontos e modal de confirmação de pedido.
+Projeto de uma loja virtual fictícia desenvolvido com HTML, CSS e JavaScript. A aplicação roda diretamente no navegador, sem banco de dados, frameworks ou bibliotecas externas.
 
-## 🚀 Funcionalidades
+## Funcionalidades
 
-- **Vitrine Dinâmica de Produtos:**
-  - Exibição de catálogo com imagem, nome, categoria, preço e indicador de estoque.
-  - Bloqueio automático de adição ao carrinho para produtos indisponíveis.
+- Exibição dinâmica de seis produtos com imagem, nome, categoria, preço e disponibilidade.
+- Busca de produtos pelo nome e filtro por categoria.
+- Adição de produtos ao carrinho, com limite baseado no estoque.
+- Alteração da quantidade e remoção de produtos do carrinho.
+- Atualização automática da quantidade de itens, subtotal, desconto e total.
+- Desconto de 10% para compras a partir de R$ 300,00.
+- Mensagem de erro ao tentar finalizar a compra com o carrinho vazio.
+- Modal com os itens, quantidades, subtotal, desconto e valor final da compra.
+- Carrinho limpo ao fechar o modal de compra concluída.
 
-- **Filtros e Busca em Tempo Real:**
-  - Pesquisa por nome do produto com atualização instantânea na tela.
-  - Filtragem por categorias (*Informática*, *Acessórios*, *Games*, etc.).
+## Tecnologias
 
-- **Carrinho de Compras Interativo:**
-  - Adição de itens com verificação de disponibilidade em estoque.
-  - Incremento e decremento de quantidade direto no painel do carrinho.
-  - Remoção individual de itens ou limpeza completa do carrinho.
-  - Exibição da miniatura do produto e nome completo no resumo da linha.
+- **HTML5** para a estrutura da página.
+- **CSS3** para o tema e o layout.
+- **JavaScript** para os produtos, regras de negócio, cálculos e interação com o DOM. O código usa as classes `Produto` e `Carrinho`.
 
-- **Regras de Negócio e Cálculos Automatizados:**
-  - **Subtotal:** Soma automática dos valores dos itens no carrinho.
-  - **Desconto:** Aplicação automática de 10% de desconto para compras a partir de R$ 300,00.
-  - **Total:** Cálculo do valor final a ser pago.
+## Arquivos
 
-- **Modal de Finalização:**
-  - Resumo detalhado dos itens adquiridos e valores no momento do checkout.
-
-## 🛠️ Tecnologias Utilizadas
-
-- **HTML5:** Estruturação semântica das seções e componentes da página.
-- **CSS3:**
-  - Layout moderno com **Flexbox** e **CSS Grid**.
-  - Tema *Dark Mode* estruturado através de Variáveis CSS (`:root`).
-  - Responsividade e tratamento de overflow de elementos.
-- **JavaScript (ES6+):**
-  - Programação Orientada a Objetos (Classes `Produto` e `Carrinho`).
-  - Manipulação dinâmica do DOM.
-  - Tratamento de eventos de entrada (filtros, cliques e validações).
-
-## 📂 Estrutura do Projeto
-
-```
-├── index.html     # Estrutura principal da aplicação
-├── style.css      # Estilização visual, layout e temas
-├── script.js      # Lógica de negócios, manipulação do DOM e carrinho
-└── README.md      # Documentação do projeto
+```text
+TechStore/
+├── index.html       # Página principal
+├── style.css        # Estilos da aplicação
+├── script.js        # Lógica da loja e do carrinho
+└── README.MD        # Documentação
 ```
 
-## 👥 Integrantes do Grupo
+## Como executar
+
+Abra `index.html` em um navegador moderno. Também é possível abrir a pasta no Visual Studio Code e executar o arquivo com a extensão Live Server.
+
+As imagens dos produtos são carregadas de endereços externos, então precisam de conexão com a internet para aparecer.
+
+## Integrantes
 
 - Victor Emanoel
 - André
 - Paulo dos Santos
 - Iasmin
 - Igor
-
-## 🔧 Como Executar o Projeto
-
-1. Faça o clone do repositório:
-   ```bash
-   git clone https://github.com/victorlimapy/TechStore.git
-   ```
-
-2. Acesse a pasta do projeto no seu computador.
-
-3. Abra o arquivo `index.html` diretamente em qualquer navegador web moderno (Google Chrome, Firefox, Edge, Safari) ou utilize a extensão **Live Server** no VS Code.
-
-## 📌 Próximos Passos e Melhorias Futuras
-
-- [ ] Integração com **LocalStorage** para persistir os itens do carrinho após atualizar a página.
-- [ ] Integração com uma API backend para simulação de pagamento.
-- [ ] Implementação de cálculo de frete por CEP.
